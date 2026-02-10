@@ -1,39 +1,23 @@
-export type AccountStatusJSON = {
-  id: number,
-  description: 'OPEN' | 'BLOCKED' | 'CLOSED' | 'INVALID'
-}
+export class AccountStatus {
+  constructor(private id: number) {}
 
-export class AccountStatus {  
-
-  constructor(private id: number){}
-
-  toJSON(): AccountStatusJSON {
-    if(this.id === 1){
-      return {
-        id: this.id,
-        description: 'OPEN'
-      }
-    }
-
-    if(this.id === 2){
-      return {
-        id: this.id,
-        description: 'BLOCKED'
-      }
-    }
-
-    if(this.id === 3){
-      return {
-        id: this.id,
-        description: 'CLOSED'
-      }
-    }
-
-    return {
-      id: this.id,
-      description: 'INVALID'
-    }
+  getId(): number {
+    return this.id;
   }
 
+  toJSON() {
+    return {
+      id: this.id,
+      description: this.getDescription(),
+    };
+  }
 
+  private getDescription(): string {
+    const statusMap: Record<number, string> = {
+      1: 'OPEN',
+      2: 'CLOSED',
+      3: 'PENDING',
+    };
+    return statusMap[this.id] || 'UNKNOWN';
+  }
 }
