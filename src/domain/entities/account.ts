@@ -1,6 +1,8 @@
+import { AccountStatus } from "../value-objects/account-status-value-object"
+
 export type AccountJSON = {
   id: number,
-  status: number,
+  status: AccountStatus,
   createdAt: Date,
 }
 
@@ -8,9 +10,13 @@ export class Account {
 
   constructor(
     private id: number,
-    private status: number,
+    private status: AccountStatus,
     private createdAt: Date,
   ){
+  }
+
+  isValid(): boolean{
+    return true
   }
 
   toJSON(): AccountJSON {
