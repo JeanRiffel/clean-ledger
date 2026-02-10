@@ -1,12 +1,14 @@
 import express, { Request, Response } from "express"
 import dotenv from 'dotenv'
 import { MongoDatabaseSingleton } from "../infra/config/database/mongo-database-sigleton"
+import { accountRouter } from "../interfaces/http/routes"
 
 dotenv.config()
 
 const app = express()
 const port = process.env.PORT || 3000
 
+app.use(accountRouter)
 app.use(express.json())
 
 // Health check endpoint
