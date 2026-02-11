@@ -28,7 +28,8 @@
     "express": "^5.1.0",
     "mongodb": "^7.0.0",
     "pg": "^8.16.3",
-    "redis": "^5.9.0"
+    "redis": "^5.9.0",
+    "uuid": "^13.0.0"
   },
   "scripts": {
     "start": "nodemon --exec bun run src/main/server.ts",

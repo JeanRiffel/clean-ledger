@@ -1,7 +1,8 @@
+import { AccountId } from "../value-objects/account-id"
 import { AccountStatus } from "../value-objects/account-status-value-object"
 
 export type AccountJSON = {
-  id: number,
+  id: AccountId,
   status: AccountStatus,
   createdAt: Date,
 }
@@ -9,9 +10,9 @@ export type AccountJSON = {
 export class Account {
 
   constructor(
-    private id: number,
-    private status: AccountStatus,
-    private createdAt: Date,
+    private readonly id: AccountId,
+    private readonly status: AccountStatus,
+    private readonly createdAt: Date,
   ){
   }
 
