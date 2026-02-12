@@ -12,7 +12,7 @@ export class AccountStatus {
     };
   }
 
-  private getDescription(): string {
+  getDescription(): string {
     const statusMap: Record<number, string> = {
       1: 'OPEN',
       2: 'CLOSED',

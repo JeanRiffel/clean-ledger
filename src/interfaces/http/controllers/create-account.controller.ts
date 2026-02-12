@@ -7,12 +7,18 @@ export class CreateAccountController {
   ){}
 
   async handle(): Promise<any>{
+    try {
+      const result = await this.createAccountUseCase.execute()
 
-    const result = await this.createAccountUseCase.execute()
-
-    return {
-      statusCode: 201,
-      result: result
+      return {
+        statusCode: 201,
+        result: result
+      }
+    }catch(error){
+      return {
+        statusCode: 500,
+        result: `Error on createAccountUseCase: ${error} `
+      }
     }
 
   }

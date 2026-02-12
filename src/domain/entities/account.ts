@@ -13,20 +13,18 @@ export class Account {
     private readonly id: AccountId,
     private readonly status: AccountStatus,
     private readonly createdAt: Date,
-  ){
+  ){}
+
+  getId(): AccountId {
+    return this.id
   }
 
-  isValid(): boolean{
-    return true
+  getStatus(): AccountStatus {
+    return this.status
   }
 
-  toJSON(): AccountJSON {
-    return {
-      id: this.id,
-      status: this.status,
-      createdAt: this.createdAt,
-    }
+  getCreatedAt(): Date {
+    return this.createdAt
   }
-
   
 }
