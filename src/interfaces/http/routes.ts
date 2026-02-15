@@ -5,9 +5,13 @@ import { CreateAccountUseCase } from '../../application/uses-cases/account/creat
 const accountRouter = Router()
 
 accountRouter.post('/account', async(req: Request, res: Response) => {
-  const createAccount = new CreateAccountController(new CreateAccountUseCase)
-  const result = await createAccount.handle()  
-  res.status(201).json(result)
+  try {
+    const createAccount = new CreateAccountController(new CreateAccountUseCase)
+    const result = await createAccount.handle()  
+    res.status(result.statusCode).json(result)
+  }catch(error){
+    res.status(500).json(error)
+  }
 })
 
 
