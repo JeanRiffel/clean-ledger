@@ -1,6 +1,6 @@
 import { Account } from "../../../domain/entities/account"
 import { AccountRepository } from "../../../domain/entities/account-repository"
-import { AccountId } from "../../../domain/value-objects/account-id"
+import { AccountId } from "../../../domain/value-objects/account-id-value-object"
 import { AccountStatus } from "../../../domain/value-objects/account-status-value-object"
 import { SystemClock } from "../../../infra/time/system-clock"
 import { CreateAccountOutput } from "./create-account-output"

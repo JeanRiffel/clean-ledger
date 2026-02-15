@@ -1,6 +1,6 @@
 import { Account } from "../../domain/entities/account";
 import { AccountRepository } from "../../domain/entities/account-repository";
-import { AccountId } from "../../domain/value-objects/account-id";
+import { AccountId } from "../../domain/value-objects/account-id-value-object";
 
 export class PostgresAccountRepository implements AccountRepository{
   
