@@ -1,4 +1,5 @@
 import { Account } from "../../../domain/entities/account"
+import { AccountRepository } from "../../../domain/entities/account-repository"
 import { AccountId } from "../../../domain/value-objects/account-id"
 import { AccountStatus } from "../../../domain/value-objects/account-status-value-object"
 import { SystemClock } from "../../../infra/time/system-clock"
@@ -6,7 +7,9 @@ import { CreateAccountOutput } from "./create-account-output"
 
 export class CreateAccountUseCase {
 
-  constructor(){}
+  constructor(
+    private readonly accountRepository: AccountRepository
+  ){}
 
   async execute(): Promise<CreateAccountOutput>{
     const accountId =  AccountId.generate()
@@ -19,6 +22,9 @@ export class CreateAccountUseCase {
       createdAt
     )
     
+    await this.accountRepository.save(account);
+        
+
     return CreateAccountOutput.from(account)
   }
 
