@@ -1,5 +1,5 @@
 import { Account } from "./account"
-import { AccountId } from "../value-objects/account-id"
+import { AccountId } from "../value-objects/account-id-value-object"
 
 export interface AccountRepository {
   save(account: Account): Promise<void>

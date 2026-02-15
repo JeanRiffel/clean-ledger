@@ -1,4 +1,4 @@
-import { AccountId } from "../value-objects/account-id"
+import { AccountId } from "../value-objects/account-id-value-object"
 import { AccountStatus } from "../value-objects/account-status-value-object"
 
 export type AccountJSON = {

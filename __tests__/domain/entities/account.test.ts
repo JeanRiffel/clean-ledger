@@ -1,5 +1,5 @@
 import { Account } from '../../../src/domain/entities/account';
-import { AccountId } from '../../../src/domain/value-objects/account-id';
+import { AccountId } from '../../../src/domain/value-objects/account-id-value-object';
 import { AccountStatus } from '../../../src/domain/value-objects/account-status-value-object';
 import { inputData, expectedOutput } from './mocks/account-mock';
 
