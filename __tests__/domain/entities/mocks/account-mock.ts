@@ -8,8 +8,11 @@ export const inputData = {
 
 export const accountStatus = new AccountStatus(1);
 
-export const outputData = {
-  id: 1,
-  status: accountStatus,
-  createdAt: new Date()
-}
+
+export const expectedOutput = (accountId: any) => {
+  return {
+    id: accountId,
+    status: new AccountStatus(inputData.status),
+    createdAt: inputData.createdAt,      
+  }
+};
