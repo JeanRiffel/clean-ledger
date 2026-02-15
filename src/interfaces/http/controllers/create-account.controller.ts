@@ -1,5 +1,6 @@
 import { CreateAccountUseCase } from "../../../application/uses-cases/account/create-account-use-case";
 
+
 export class CreateAccountController {
   
   constructor(
