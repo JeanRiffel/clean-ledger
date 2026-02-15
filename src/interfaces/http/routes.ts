@@ -7,7 +7,6 @@ const accountRouter = (controller: CreateAccountController) => {
 
   router.post('/account', async(req: Request, res: Response) => {
     try {
-      
       const result = await controller.handle()  
       res.status(result.statusCode).json(result)
     }catch(error){

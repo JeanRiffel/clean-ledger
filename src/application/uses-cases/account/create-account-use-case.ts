@@ -23,8 +23,6 @@ export class CreateAccountUseCase {
     )
     
     await this.accountRepository.save(account);
-        
-
     return CreateAccountOutput.from(account)
   }
 
