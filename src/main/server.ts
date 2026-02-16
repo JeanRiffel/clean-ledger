@@ -3,7 +3,7 @@ import dotenv from 'dotenv'
 import { MongoDatabaseSingleton } from "../infra/config/database/mongo-database-sigleton"
 import { accountRouter } from "../interfaces/http/routes"
 import { CreateAccountController } from "../interfaces/http/controllers/create-account.controller"
-import { buildAccountModule } from "./account/account-module"
+import { createAccountUseCase } from "src/infra/factories/account-factory"
 dotenv.config()
 
 const app = express()
@@ -11,7 +11,7 @@ const port = process.env.PORT || 3000
 
 app.use(express.json())
 
-const accountModule = buildAccountModule()
+const accountModule = createAccountUseCase() as any
 const createAccountController = new CreateAccountController(accountModule)
 accountRouter(createAccountController)
 
