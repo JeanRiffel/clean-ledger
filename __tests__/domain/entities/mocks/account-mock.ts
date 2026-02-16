@@ -13,6 +13,8 @@ export const expectedOutput = (accountId: any) => {
   return {
     id: accountId,
     status: new AccountStatus(inputData.status),
-    createdAt: inputData.createdAt,      
+    createdAt: inputData.createdAt,
+    password: '1234'
   }
+
 };

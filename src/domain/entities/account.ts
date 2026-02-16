@@ -13,6 +13,7 @@ export class Account {
     private readonly id: AccountId,
     private readonly status: AccountStatus,
     private readonly createdAt: Date,
+    private password: string
   ){}
 
   getId(): AccountId {
@@ -25,6 +26,10 @@ export class Account {
 
   getCreatedAt(): Date {
     return this.createdAt
+  }
+  
+  getPassword(): String {
+    return this.password
   }
   
 }

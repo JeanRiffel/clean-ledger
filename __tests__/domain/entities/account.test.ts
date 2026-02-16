@@ -11,7 +11,8 @@ describe('Account', () => {
     const account = new Account(
       accountId,  
       new AccountStatus(inputData.status),
-      inputData.createdAt
+      inputData.createdAt,
+      "1234"
     );
 
     const output = expectedOutput(accountId)
