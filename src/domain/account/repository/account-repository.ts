@@ -1,4 +1,4 @@
-import { Account } from "./account"
+import { Account } from "../entities/account"
 import { AccountId } from "../value-objects/account-id-value-object"
 
 export interface AccountRepository {

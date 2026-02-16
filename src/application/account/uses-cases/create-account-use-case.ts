@@ -1,12 +1,12 @@
-import { UseCase } from "src/application/common-use-case."
-import { Account } from "../../../domain/entities/account"
-import { AccountRepository } from "../../../domain/entities/account-repository"
-import { AccountId } from "../../../domain/value-objects/account-id-value-object"
-import { AccountStatus } from "../../../domain/value-objects/account-status-value-object"
+import { UseCase } from "src/application/shared/idempotency/common-use-case."
+import { Account } from "../../../domain/account/entities/account"
+import { AccountRepository } from "../../../domain/account/repository/account-repository"
+import { AccountId } from "../../../domain/account/value-objects/account-id-value-object"
+import { AccountStatus } from "../../../domain/account/value-objects/account-status-value-object"
 import { SystemClock } from "../../../infra/time/system-clock"
-import { CreateAccountOutput } from "./create-account-output"
-import { CreateAccountInput } from "./create-account-input"
-import { PasswordHasher } from "src/application/security/password-hasher"
+import { CreateAccountOutput } from "../dto/create-account-output"
+import { CreateAccountInput } from "../dto/create-account-input"
+import { PasswordHasher } from "src/application/shared/security/password-hasher"
 
 
 export class CreateAccountUseCase implements UseCase<CreateAccountInput, CreateAccountOutput> {

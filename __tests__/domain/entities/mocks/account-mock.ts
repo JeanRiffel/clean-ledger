@@ -1,4 +1,4 @@
-import { AccountStatus } from '../../../../src/domain/value-objects/account-status-value-object';
+import { AccountStatus } from "../../../../src/domain/account/value-objects/account-status-value-object";
 
 export const inputData = {
   id: 1,

@@ -1,5 +1,5 @@
 import { UseCase } from "./common-use-case.";
-import { IdempotencyRepository } from "./repositories/idempotency-repository";
+import { IdempotencyRepository } from "../../repositories/idempotency-repository";
 
 export class IdempotentDecorator<I, O> implements UseCase<I, O>{
 

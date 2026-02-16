@@ -1,4 +1,4 @@
-import { IdempotencyRecord, IdempotencyRepository } from "../../application/repositories/idempotency-repository";
+import { IdempotencyRecord, IdempotencyRepository } from "../../../application/repositories/idempotency-repository";
 
 export class PostgresIdempotencyRepository<O = any> implements IdempotencyRepository<O> {
 

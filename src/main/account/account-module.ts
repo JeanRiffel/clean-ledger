@@ -1,14 +1,16 @@
-import { IdempotentDecorator } from "src/application/idempotent-decorator"
-import { CreateAccountUseCase } from "../../application/uses-cases/account/create-account-use-case"
-import { UseCase } from "src/application/common-use-case."
-import { CreateAccountInput } from "src/application/uses-cases/account/create-account-input"
-import { CreateAccountOutput } from "src/application/uses-cases/account/create-account-output"
-import { AccountRepository } from "src/domain/entities/account-repository"
+import { IdempotentDecorator } from "src/application/shared/idempotency/idempotent-decorator"
+import { CreateAccountUseCase } from "src/application/account/uses-cases/create-account-use-case"
+import { UseCase } from "src/application/shared/idempotency/common-use-case."
+import { CreateAccountInput } from "src/application/account/dto/create-account-input"
+import { CreateAccountOutput } from "src/application/account/dto/create-account-output"
+import { AccountRepository } from "src/domain/account/repository/account-repository"
 import { IdempotencyRepository } from "src/application/repositories/idempotency-repository"
+import { BcryptPasswordHasher } from "src/infra/security/bycrypt-password-hasher"
 
 export type AccountModuleDependencies = {
   accountRepository: AccountRepository
   idempotencyRepository: IdempotencyRepository
+  passwordHasher: BcryptPasswordHasher
 }
 
 export function buildAccountModule(
@@ -18,7 +20,10 @@ export function buildAccountModule(
   CreateAccountOutput
 > {
   const createAccountUseCase = 
-    new CreateAccountUseCase(deps.accountRepository)
+    new CreateAccountUseCase(
+      deps.accountRepository,
+      deps.passwordHasher
+    )
 
   const idempotentCreateAccount =
     new IdempotentDecorator(
