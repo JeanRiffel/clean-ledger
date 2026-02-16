@@ -6,15 +6,19 @@ import { AccountStatus } from "../../../domain/value-objects/account-status-valu
 import { SystemClock } from "../../../infra/time/system-clock"
 import { CreateAccountOutput } from "./create-account-output"
 import { CreateAccountInput } from "./create-account-input"
+import { PasswordHasher } from "src/application/security/password-hasher"
 
 
 export class CreateAccountUseCase implements UseCase<CreateAccountInput, CreateAccountOutput> {
 
   constructor(
-    private readonly accountRepository: AccountRepository
+    private readonly accountRepository: AccountRepository,
+    private readonly passwordHasher: PasswordHasher
   ){}
 
-  async execute(): Promise<CreateAccountOutput>{
+  async execute(input: CreateAccountInput): Promise<CreateAccountOutput>{
+    const hashedPassword = await this.passwordHasher.hash(input.password)
+    
     const accountId =  AccountId.generate()
     const accountStatus = new AccountStatus(1)
     const createdAt = new SystemClock().now()
@@ -22,7 +26,8 @@ export class CreateAccountUseCase implements UseCase<CreateAccountInput, CreateA
     const account = new Account(
       accountId,
       accountStatus,
-      createdAt
+      createdAt,
+      hashedPassword
     )
     
     await this.accountRepository.save(account);
