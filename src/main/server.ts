@@ -1,7 +1,7 @@
 import express, { Request, Response } from "express"
 import dotenv from 'dotenv'
 import { MongoDatabaseSingleton } from "../infra/config/database/mongo-database-sigleton"
-import { accountRouter } from "../interfaces/http/routes"
+import { accountRouter } from "../interfaces/http/routes/account/routes"
 import { CreateAccountController } from "../interfaces/http/controllers/create-account.controller"
 import { createAccountUseCase } from "src/infra/factories/account-factory"
 dotenv.config()
