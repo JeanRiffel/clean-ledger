@@ -1,6 +1,6 @@
-import { Account } from "../../../domain/entities/account";
-import { AccountRepository } from "../../../domain/entities/account-repository";
-import { AccountId } from "../../../domain/value-objects/account-id-value-object";
+import { Account } from "../../../domain/account/entities/account";
+import { AccountRepository } from "../../../domain/account/repository/account-repository";
+import { AccountId } from "../../../domain/account/value-objects/account-id-value-object";
 
 export class InMemoryAccountRepository implements AccountRepository{
   private accounts: Account[] = []

@@ -1,4 +1,4 @@
-import { AccountId } from '../../../src/domain/value-objects/account-id-value-object'
+import { AccountId } from '../../../src/domain/account/value-objects/account-id-value-object'
 
 describe('AccountIdValue', ()=>{
 

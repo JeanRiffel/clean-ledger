@@ -1,5 +1,5 @@
 import bcrypt from 'bcrypt'
-import { PasswordHasher } from "src/application/security/password-hasher";
+import { PasswordHasher } from "src/application/shared/security/password-hasher";
 
 export class BcryptPasswordHasher implements PasswordHasher{
   hash(password: string): Promise<string> {

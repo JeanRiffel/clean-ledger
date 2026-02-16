@@ -1,4 +1,4 @@
-import { InMemoryIdempotencyRepository } from '../../src/infra/database/in-memory/in-memory-idempotency-repository'
+import { InMemoryIdempotencyRepository } from '../../src/infra/persistence/in-memory/in-memory-idempotency-repository'
 
 describe("Idempotency Respository", ()=> {
 

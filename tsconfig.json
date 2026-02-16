@@ -6,7 +6,7 @@
     "declaration": true,
     "baseUrl": ".",
     "outDir": "./dist",
-    "rootDir": "./src",
+    "rootDir": ".",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
@@ -26,9 +26,7 @@
     "noImplicitThis": true,
     "alwaysStrict": true
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "__tests__"],
   "exclude": ["node_modules", "dist"],
-  "paths": {
-    "@/*": ["src/*"]
-  }
+  "paths": { "src/*": ["src/*"] },
 }
