@@ -1,7 +1,9 @@
+import { JwtPayload } from "jsonwebtoken";
+
 export interface TokenGenerator {
-  generate(payload: object): string
+  generate(payload: object, expiresIn?: string): string
 }
 
 export interface TokenVerifier {
-  verify(token: string): object
+  verify(token: string): JwtPayload | string
 }

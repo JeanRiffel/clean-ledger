@@ -4,6 +4,7 @@ import { MongoDatabaseSingleton } from "../infra/config/database/mongo-database-
 import { accountRouter } from "../interfaces/http/routes/account/routes"
 import { CreateAccountController } from "../interfaces/http/controllers/create-account.controller"
 import { createAccountUseCase } from "src/infra/factories/account-factory"
+import { createJWTService } from "../infra/factories/jwt-factory"
 dotenv.config()
 
 const app = express()
@@ -13,10 +14,11 @@ app.use(express.json())
 
 const accountModule = createAccountUseCase() as any
 const createAccountController = new CreateAccountController(accountModule)
-accountRouter(createAccountController)
+const jwtService = createJWTService()
+accountRouter(createAccountController, jwtService)
 
 // Health check endpoint
-app.get('/health', (req: Request, res: Response) => {
+app.get('/health', (_req: Request, res: Response) => {
   return res.json({ status: 'ok', timestamp: new Date().toISOString() })
 })
 
